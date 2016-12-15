@@ -31,7 +31,7 @@ Finds named entities (currently finds proper names) in the text, entity types, s
 | accessToken          | credentials| Google Cloud Access Token
 | encodingType         | String     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
 | documentType         | String     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
-| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. nly English, Spanish, and Japanese textual content are supported.
+| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent      | String     | The content of the input in string format.
 | documentGcsContentUri| String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 
@@ -43,7 +43,7 @@ Analyzes the sentiment of the provided text.
 | accessToken          | credentials| Google Cloud Access Token
 | encodingType         | String     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
 | documentType         | String     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
-| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. nly English, Spanish, and Japanese textual content are supported.
+| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent      | String     | The content of the input in string format.
 | documentGcsContentUri| String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 
@@ -55,7 +55,7 @@ Analyzes the syntax of the text and provides sentence boundaries and tokenizatio
 | accessToken          | credentials| Google Cloud Access Token
 | encodingType         | String     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
 | documentType         | String     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
-| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. nly English, Spanish, and Japanese textual content are supported.
+| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent      | String     | The content of the input in string format.
 | documentGcsContentUri| String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 
@@ -67,7 +67,7 @@ A convenience method that provides all the features that analyzeSentiment, analy
 | accessToken             | credentials| Google Cloud Access Token
 | encodingType            | String     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
 | documentType            | String     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
-| documentLanguage        | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. nly English, Spanish, and Japanese textual content are supported.
+| documentLanguage        | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent         | String     | The content of the input in string format.
 | documentGcsContentUri   | String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 | extractSyntax           | Boolean    | Extract syntax information.
