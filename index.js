@@ -3,7 +3,9 @@
 global.PACKAGE_NAME = "GoogleNLP";
 global.KEY_STORAGE  = {};
 
+// ...
 global.RapidError = function(code, fields) {
+
     let messages = {
         'REQUIRED_FIELDS':        'Please, check and fill in required fields.',
         'REQUIRED_FIELDS_OR':     'Please, fill in at least one field.',
@@ -11,10 +13,11 @@ global.RapidError = function(code, fields) {
         'INTERNAL_PACKAGE_ERROR': 'Something went wrong inside the package.'
     }
 
-    this.status_code = code;
+    // ...
+    this.status_code = code == 'REQUIRED_FIELDS_OR' ? 'REQUIRED_FIELDS' : code;
     this.status_msg  = messages[code];
 
-    if(code == 'REQUIRED_FIELDS')
+    if(/REQUIRED/.test(code))
         this.fields  = fields || [];
 }
 
@@ -44,7 +47,6 @@ for(let route in API) {
         };
 
         try {
-            // google auth code
             response              = yield API[route](req, res);
             r.callback            = 'success';
             r.contextWrites['to'] = response;
