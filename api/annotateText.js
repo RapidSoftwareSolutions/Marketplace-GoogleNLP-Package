@@ -24,9 +24,11 @@ module.exports = (req, res) => {
     if(required.length > 0) 
         throw new RapidError('REQUIRED_FIELDS', required);
 
-    if(!extractSyntax || !extractEntities || !extractDocumentSentiment) {
+    if(!documentContent && !documentGcsContentUri)
+        throw new RapidError('REQUIRED_FIELDS_OR', ['documentContent', 'extractEntities']);
+
+    if(!extractSyntax && !extractEntities && !extractDocumentSentiment)
         throw new RapidError('REQUIRED_FIELDS_OR', ['extractSyntax', 'extractEntities', 'extractDocumentSentiment']);
-    }
 
     let params = lib.clearArgs({
         encodingType,

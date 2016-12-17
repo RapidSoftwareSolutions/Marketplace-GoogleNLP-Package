@@ -21,7 +21,7 @@ module.exports = (req, res) => {
     if(required.length > 0) 
         throw new RapidError('REQUIRED_FIELDS', required);
 
-    if(!documentContent || !documentGcsContentUri) {
+    if(!documentContent && !documentGcsContentUri) {
         throw new RapidError('REQUIRED_FIELDS_OR', ['documentContent', 'documentGcsContentUri']);
     }
 
