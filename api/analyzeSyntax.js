@@ -36,7 +36,7 @@ module.exports = (req, res) => {
     }, true);
 
     request({
-        uri: 'https://language.googleapis.com/v1beta1/documents:analyzeSentiment',
+        uri: 'https://language.googleapis.com/v1beta1/documents:analyzeSyntax',
         method: 'POST',
         body: JSON.stringify(params),
         headers: {
