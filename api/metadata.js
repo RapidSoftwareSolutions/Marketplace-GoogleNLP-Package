@@ -184,19 +184,19 @@ module.exports.do = function(req, res){
                 {
                     name: "extractSyntax",
                     type: "Boolean",
-                    info: "Extract syntax information.",
+                    info: "Extract syntax information. Provides a powerful set of tools for analyzing and parsing text through syntactic analysis.",
                     required: false
                 },
                 {
                     name: "extractEntities",
                     type: "Boolean",
-                    info: "Extract entities.",
+                    info: "Extract entities. Entity Analysis provides information about entities in the text, which generally refer to named 'things' such as famous individuals, landmarks, common objects, etc.",
                     required: false
                 },
                 {
                     name: "extractDocumentSentiment",
                     type: "Boolean",
-                    info: "Extract document-level sentiment.",
+                    info: "Extract document-level sentiment. Sentiment analysis attempts to determine the overall attitude (positive or negative) expressed within the text. Sentiment is represented by numerical score and magnitude values.",
                     required: false
                 }
             ], 

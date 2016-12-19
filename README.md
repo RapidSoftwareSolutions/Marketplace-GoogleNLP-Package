@@ -70,7 +70,7 @@ A convenience method that provides all the features that analyzeSentiment, analy
 | documentLanguage        | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent         | String     | The content of the input in string format.
 | documentGcsContentUri   | String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
-| extractSyntax           | Boolean    | Extract syntax information.
-| extractEntities         | Boolean    | Extract entities.
-| extractDocumentSentiment| Boolean    | Extract document-level sentiment.
+| extractSyntax           | Boolean    | Extract syntax information. Provides a powerful set of tools for analyzing and parsing text through syntactic analysis.
+| extractEntities         | Boolean    | Extract entities. Entity Analysis provides information about entities in the text, which generally refer to named 'things' such as famous individuals, landmarks, common objects, etc.
+| extractDocumentSentiment| Boolean    | Extract document-level sentiment. Sentiment analysis attempts to determine the overall attitude (positive or negative) expressed within the text. Sentiment is represented by numerical score and magnitude values.
 
