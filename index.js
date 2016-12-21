@@ -1,7 +1,6 @@
 "use strict";
 
 global.PACKAGE_NAME = "GoogleNLP";
-global.KEY_STORAGE  = {};
 
 // ...
 global.RapidError = function(code, fields) {
@@ -59,10 +58,6 @@ for(let route in API) {
         res.status(200).send(r);
     }));
 }
-
-setInterval(() => {
-    KEY_STORAGE = {};
-}, 10 * 60 * 1000);
 
 app.listen(PORT);
 module.exports = app;
