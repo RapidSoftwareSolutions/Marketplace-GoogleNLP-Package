@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     req.body.args = lib.clearArgs(req.body.args);
 
     let { 
-        accessToken,
+        apiKey,
         encodingType,
         documentType='UTF8',
         documentLanguage,
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
         extractDocumentSentiment
     } = req.body.args;
         
-    let required = lib.parseReq({accessToken});
+    let required = lib.parseReq({apiKey});
 
     if(required.length > 0) 
         throw new RapidError('REQUIRED_FIELDS', required);
@@ -50,7 +50,7 @@ module.exports = (req, res) => {
         method: 'POST',
         body: JSON.stringify(params),
         headers: {
-            'Authorization': 'Bearer ' + accessToken
+            'Authorization': 'Bearer ' + apiKey
         }
     }, (err, response, reslut) => {
         if(!err && (/20.*/).test(response.statusCode))  
