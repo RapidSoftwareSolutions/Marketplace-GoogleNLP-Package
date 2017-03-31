@@ -9,7 +9,7 @@ module.exports.do = function(req, res){
         'accounts': {
             'domain': 'cloud.google.com',
             'credentials': [
-                'apiKey'
+                'accessToken'
             ]
         },
         'blocks': [{
@@ -17,7 +17,7 @@ module.exports.do = function(req, res){
             "description": "Finds named entities (currently finds proper names) in the text, entity types, salience, mentions for each entity, and other properties.",
             "args":[
                 {
-                    name: "apiKey",
+                    name: "accessToken",
                     type: "credentials",
                     info: "Google Cloud Access Token",
                     required: true
@@ -60,7 +60,7 @@ module.exports.do = function(req, res){
             "description": "Analyzes the sentiment of the provided text.",
             "args":[
                 {
-                    name: "apiKey",
+                    name: "accessToken",
                     type: "credentials",
                     info: "Google Cloud Access Token",
                     required: true
@@ -103,7 +103,7 @@ module.exports.do = function(req, res){
             "description": "Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties.",
             "args":[
                 {
-                    name: "apiKey",
+                    name: "accessToken",
                     type: "credentials",
                     info: "Google Cloud Access Token",
                     required: true
@@ -146,7 +146,7 @@ module.exports.do = function(req, res){
             "description": "A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.",
             "args":[
                 {
-                    name: "apiKey",
+                    name: "accessToken",
                     type: "credentials",
                     info: "Google Cloud Access Token",
                     required: true
