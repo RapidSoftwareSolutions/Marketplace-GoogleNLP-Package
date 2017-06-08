@@ -24,20 +24,22 @@ module.exports.do = function(req, res){
                 },
                 {
                     name: "encodingType",
-                    type: "String",
+                    type: "Select",
+                    options: ["NONE", "UTF8", "UTF16", "UTF32"],
                     info: "The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`",
                     required: false
                 },
                 {
                     name: "documentType",
-                    type: "String",
+                    type: "Select",
+                    options: ["TYPE_UNSPECIFIED", "PLAIN_TEXT", "HTML"],
                     info: "Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`",
                     required: true
                 },
                 {
                     name: "documentLanguage",
                     type: "String",
-                    info: "The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. nly English, Spanish, and Japanese textual content are supported.",
+                    info: "The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.",
                     required: false
                 },
                 {
@@ -52,7 +54,7 @@ module.exports.do = function(req, res){
                     info: "The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.",
                     required: false
                 }
-            ], 
+            ],
             'callbacks':[{'name':'error','info':'Error'}, {'name':'success','info':'Success'}]
         },
         {
@@ -67,13 +69,15 @@ module.exports.do = function(req, res){
                 },
                 {
                     name: "encodingType",
-                    type: "String",
+                    type: "Select",
+                    options: ["NONE", "UTF8", "UTF16", "UTF32"],
                     info: "The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`",
                     required: false
                 },
                 {
                     name: "documentType",
-                    type: "String",
+                    type: "Select",
+                    options: ["TYPE_UNSPECIFIED", "PLAIN_TEXT", "HTML"],
                     info: "Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`",
                     required: true
                 },
@@ -95,7 +99,7 @@ module.exports.do = function(req, res){
                     info: "The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.",
                     required: false
                 }
-            ], 
+            ],
             'callbacks':[{'name':'error','info':'Error'}, {'name':'success','info':'Success'}]
         },
         {
@@ -110,13 +114,15 @@ module.exports.do = function(req, res){
                 },
                 {
                     name: "encodingType",
-                    type: "String",
+                    type: "Select",
+                    options: ["NONE", "UTF8", "UTF16", "UTF32"],
                     info: "The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`",
                     required: false
                 },
                 {
                     name: "documentType",
-                    type: "String",
+                    type: "Select",
+                    options: ["TYPE_UNSPECIFIED", "PLAIN_TEXT", "HTML"],
                     info: "Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`",
                     required: true
                 },
@@ -138,7 +144,7 @@ module.exports.do = function(req, res){
                     info: "The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.",
                     required: false
                 }
-            ], 
+            ],
             'callbacks':[{'name':'error','info':'Error'}, {'name':'success','info':'Success'}]
         },
         {
@@ -153,13 +159,15 @@ module.exports.do = function(req, res){
                 },
                 {
                     name: "encodingType",
-                    type: "String",
+                    type: "Select",
+                    options: ["NONE", "UTF8", "UTF16", "UTF32"],
                     info: "The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`",
                     required: false
                 },
                 {
                     name: "documentType",
-                    type: "String",
+                    type: "Select",
+                    options: ["TYPE_UNSPECIFIED", "PLAIN_TEXT", "HTML"],
                     info: "Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`",
                     required: true
                 },
@@ -199,7 +207,7 @@ module.exports.do = function(req, res){
                     info: "Extract document-level sentiment. Sentiment analysis attempts to determine the overall attitude (positive or negative) expressed within the text. Sentiment is represented by numerical score and magnitude values.",
                     required: false
                 }
-            ], 
+            ],
             'callbacks':[{'name':'error','info':'Error'}, {'name':'success','info':'Success'}]
         }]
     })
