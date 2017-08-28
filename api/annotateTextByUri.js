@@ -12,7 +12,6 @@ module.exports = (req, res) => {
         encodingType,
         documentType='UTF8',
         documentLanguage,
-        documentContent,
         documentGcsContentUri,
         extractSyntax,
         extractEntities,
@@ -24,8 +23,8 @@ module.exports = (req, res) => {
     if(required.length > 0)
         throw new RapidError('REQUIRED_FIELDS', required);
 
-    if(!documentContent)
-        throw new RapidError('REQUIRED_FIELDS', ['documentContent']);
+    if(!documentGcsContentUri)
+        throw new RapidError('REQUIRED_FIELDS', ['documentGcsContentUri']);
 
     if(!extractSyntax && !extractEntities && !extractDocumentSentiment)
         throw new RapidError('REQUIRED_FIELDS_OR', ['extractSyntax', 'extractEntities', 'extractDocumentSentiment']);
@@ -35,7 +34,6 @@ module.exports = (req, res) => {
         document: {
             type: documentType,
             language: documentLanguage,
-            content: documentContent,
             gcsContentUri: documentGcsContentUri
         },
         features: {

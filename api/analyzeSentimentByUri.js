@@ -12,11 +12,7 @@ module.exports = (req, res) => {
         encodingType,
         documentType='UTF8',
         documentLanguage,
-        documentContent,
-        documentGcsContentUri,
-        extractSyntax,
-        extractEntities,
-        extractDocumentSentiment
+        documentGcsContentUri
     } = req.body.args;
 
     let required = lib.parseReq({accessToken});
@@ -24,29 +20,21 @@ module.exports = (req, res) => {
     if(required.length > 0)
         throw new RapidError('REQUIRED_FIELDS', required);
 
-    if(!documentContent)
-        throw new RapidError('REQUIRED_FIELDS', ['documentContent']);
-
-    if(!extractSyntax && !extractEntities && !extractDocumentSentiment)
-        throw new RapidError('REQUIRED_FIELDS_OR', ['extractSyntax', 'extractEntities', 'extractDocumentSentiment']);
+    if(!documentGcsContentUri) {
+        throw new RapidError('REQUIRED_FIELDS', ['documentGcsContentUri']);
+    }
 
     let params = lib.clearArgs({
         encodingType,
         document: {
             type: documentType,
             language: documentLanguage,
-            content: documentContent,
             gcsContentUri: documentGcsContentUri
-        },
-        features: {
-            extractSyntax,
-            extractEntities,
-            extractDocumentSentiment
         }
     }, true);
 
     request({
-        uri: 'https://language.googleapis.com/v1beta1/documents:annotateText',
+        uri: 'https://language.googleapis.com/v1beta1/documents:analyzeSentiment',
         method: 'POST',
         body: JSON.stringify(params),
         headers: {

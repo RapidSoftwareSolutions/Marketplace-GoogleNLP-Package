@@ -30,7 +30,8 @@ module.exports = (req, res) => {
         document: {
             type: documentType,
             language: documentLanguage,
-            content: documentContent
+            content: documentContent,
+            gcsContentUri: documentGcsContentUri
         }
     }, true);
 

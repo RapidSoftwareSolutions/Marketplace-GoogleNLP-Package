@@ -64,6 +64,16 @@ Analyzes the sentiment of the provided text.
 | documentType         | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
 | documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent      | String     | The content of the input in string format.
+
+## GoogleNLP.analyzeSentimentByUri
+Analyzes the sentiment of the provided text.
+
+| Field                | Type       | Description
+|----------------------|------------|----------
+| accessToken          | credentials| Google Cloud Access Token
+| encodingType         | Select     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
+| documentType         | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
+| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentGcsContentUri| String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 
 ## GoogleNLP.analyzeSyntax
@@ -76,6 +86,16 @@ Analyzes the syntax of the text and provides sentence boundaries and tokenizatio
 | documentType         | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
 | documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent      | String     | The content of the input in string format.
+
+## GoogleNLP.analyzeSyntaxByUri
+Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties.
+
+| Field                | Type       | Description
+|----------------------|------------|----------
+| accessToken          | credentials| Google Cloud Access Token
+| encodingType         | Select     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
+| documentType         | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
+| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentGcsContentUri| String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 
 ## GoogleNLP.annotateText
@@ -88,6 +108,19 @@ A convenience method that provides all the features that analyzeSentiment, analy
 | documentType            | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
 | documentLanguage        | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent         | String     | The content of the input in string format.
+| extractSyntax           | Boolean    | Extract syntax information. Provides a powerful set of tools for analyzing and parsing text through syntactic analysis.
+| extractEntities         | Boolean    | Extract entities. Entity Analysis provides information about entities in the text, which generally refer to named 'things' such as famous individuals, landmarks, common objects, etc.
+| extractDocumentSentiment| Boolean    | Extract document-level sentiment. Sentiment analysis attempts to determine the overall attitude (positive or negative) expressed within the text. Sentiment is represented by numerical score and magnitude values.
+
+## GoogleNLP.annotateTextByUri
+A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.
+
+| Field                   | Type       | Description
+|-------------------------|------------|----------
+| accessToken             | credentials| Google Cloud Access Token
+| encodingType            | Select     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
+| documentType            | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
+| documentLanguage        | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentGcsContentUri   | String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 | extractSyntax           | Boolean    | Extract syntax information. Provides a powerful set of tools for analyzing and parsing text through syntactic analysis.
 | extractEntities         | Boolean    | Extract entities. Entity Analysis provides information about entities in the text, which generally refer to named 'things' such as famous individuals, landmarks, common objects, etc.

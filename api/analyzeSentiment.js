@@ -7,7 +7,7 @@ module.exports = (req, res) => {
 
     req.body.args = lib.clearArgs(req.body.args);
 
-    let { 
+    let {
         accessToken,
         encodingType,
         documentType='UTF8',
@@ -15,14 +15,14 @@ module.exports = (req, res) => {
         documentContent,
         documentGcsContentUri
     } = req.body.args;
-        
+
     let required = lib.parseReq({accessToken});
 
-    if(required.length > 0) 
+    if(required.length > 0)
         throw new RapidError('REQUIRED_FIELDS', required);
 
-    if(!documentContent && !documentGcsContentUri) {
-        throw new RapidError('REQUIRED_FIELDS_OR', ['documentContent', 'documentGcsContentUri']);
+    if(!documentContent) {
+        throw new RapidError('REQUIRED_FIELDS', ['documentContent']);
     }
 
     let params = lib.clearArgs({
@@ -43,9 +43,9 @@ module.exports = (req, res) => {
             'Authorization': 'Bearer ' + accessToken
         }
     }, (err, response, reslut) => {
-        if(!err && (/20.*/).test(response.statusCode))  
+        if(!err && (/20.*/).test(response.statusCode))
             defered.resolve(lib.safeParse(reslut));
-        else 
+        else
             defered.reject(lib.safeParse(err || reslut || response.statusCode));
     });
 
