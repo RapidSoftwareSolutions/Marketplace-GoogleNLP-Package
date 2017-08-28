@@ -8,11 +8,9 @@ Derive insights from unstructured text using Google machine learning
 ## How to get `apiKey`:
  0. [Go to the projects page](https://console.cloud.google.com/iam-admin/projects)
  1. Select or create a Cloud Platform Console project.
- ![Creating project][create]
  2. [Enable billing](https://support.google.com/cloud/answer/6293499#enable-billing) for your project.
  3. Click ***Continue*** to enable the Translate API and any related services.
  4. On the ***Credentials*** page, get an ***API key*** (select Browser key when prompted). _Note: If you have an existing API key, you can use that key._
- 5. Go to the [translate api overview](https://console.cloud.google.com/apis/api/translate/overview) and press the "Enable" button.
 
 ## Custom datatypes:
  |Datatype|Description|Example

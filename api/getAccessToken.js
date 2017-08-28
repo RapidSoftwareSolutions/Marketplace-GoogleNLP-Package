@@ -29,7 +29,6 @@ module.exports = (req, res) => {
             grant_type: grant_type
         }
     }, true);
-    console.log('https://www.googleapis.com/oauth2/v4/token?grant_type=authorization_code&client_id='+apiKey+'&client_secret='+apiSecret+'&code='+code+'&redirect_uri='+redirectUrl);
 
     request({
         uri: 'https://www.googleapis.com/oauth2/v4/token?grant_type=authorization_code&client_id='+apiKey+'&client_secret='+apiSecret+'&code='+code+'&redirect_uri='+redirectUrl,
