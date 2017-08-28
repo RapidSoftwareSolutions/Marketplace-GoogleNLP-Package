@@ -3,19 +3,16 @@
 # GoogleNLP Package
 Derive insights from unstructured text using Google machine learning
 * Domain: cloud.google.com
-* Credentials: accessToken
+* Credentials: apiKey, apiSecret
 
-## How to get credentials:
-0. Install [gcloud SDK for your system](https://cloud.google.com/sdk/)
-1. Go to [google developer console](https://console.developers.google.com)
-2. Create new project, enable NL API and billing for your project
-3. Go to credentials section > Service account key
-4. Select 'App Engine default ...' as Service Account, click `create` and save it
-5. Run `gcloud auth activate-service-account --key-file=/path/to/key/file.json`
-6. Run `gcloud auth print-access-token`
-7. Copy and save your `access token`
-
-Read more: [https://cloud.google.com/natural-language/docs/getting-started](https://cloud.google.com/natural-language/docs/getting-started)
+## How to get `apiKey`:
+ 0. [Go to the projects page](https://console.cloud.google.com/iam-admin/projects)
+ 1. Select or create a Cloud Platform Console project.
+ ![Creating project][create]
+ 2. [Enable billing](https://support.google.com/cloud/answer/6293499#enable-billing) for your project.
+ 3. Click ***Continue*** to enable the Translate API and any related services.
+ 4. On the ***Credentials*** page, get an ***API key*** (select Browser key when prompted). _Note: If you have an existing API key, you can use that key._
+ 5. Go to the [translate api overview](https://console.cloud.google.com/apis/api/translate/overview) and press the "Enable" button.
 
 ## Custom datatypes:
  |Datatype|Description|Example
@@ -27,14 +24,15 @@ Read more: [https://cloud.google.com/natural-language/docs/getting-started](http
  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
 
 
+ ## GoogleNLP.getAccessToken
+ Generate access token
 
-Example:
-```bash
-$ gcloud auth activate-service-account --key-file=key.json
-Activated service account credentials for: [rapidapi-prod@appspot.gserviceaccount.com]
-$ gcloud auth print-access-token
-yaXY.El-1A2CjCHxn76BW04Lc0StD03kvzqJCenfeFTs6Z-wxNhqJ0pkLaHWbGwlr_cFiBgxhLvhMsVF4xclOa_44t2qnyA1AlOkEjwcb..... - your accessToken
-```
+ | Field                | Type       | Description
+ |----------------------|------------|----------
+ | apiKey          | credentials| Google Cloud apiKey
+ | apiSecret          | credentials| Google Cloud apiSecret
+ | code          | String| Code provided by user
+ | redirectUrl          | String| Redirect URL for your application
 
 ## GoogleNLP.analyzeEntities
 Finds named entities (currently finds proper names) in the text, entity types, salience, mentions for each entity, and other properties.
@@ -46,6 +44,16 @@ Finds named entities (currently finds proper names) in the text, entity types, s
 | documentType         | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
 | documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentContent      | String     | The content of the input in string format.
+
+## GoogleNLP.analyzeEntitiesByUri
+Finds named entities (currently finds proper names) in the text, entity types, salience, mentions for each entity, and other properties.
+
+| Field                | Type       | Description
+|----------------------|------------|----------
+| accessToken          | credentials| Google Cloud Access Token
+| encodingType         | Select     | The encoding type used by the API to calculate offsets. Valid values: `NONE`, `UTF8`, `UTF16`, `UTF32`
+| documentType         | Select     | Required. If the type is not set or is TYPE_UNSPECIFIED, returns an INVALID_ARGUMENT error. Valid values: `TYPE_UNSPECIFIED`, `PLAIN_TEXT`, `HTML`
+| documentLanguage     | String     | The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. Only English, Spanish, and Japanese textual content are supported.
 | documentGcsContentUri| String     | The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported.
 
 ## GoogleNLP.analyzeSentiment

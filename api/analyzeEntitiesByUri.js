@@ -21,8 +21,8 @@ module.exports = (req, res) => {
     if(required.length > 0)
         throw new RapidError('REQUIRED_FIELDS', required);
 
-    if(!documentContent) {
-        throw new RapidError('REQUIRED_FIELDS', ['documentContent']);
+    if(!documentGcsContentUri) {
+        throw new RapidError('REQUIRED_FIELDS', ['documentGcsContentUri']);
     }
 
     let params = lib.clearArgs({
@@ -30,7 +30,7 @@ module.exports = (req, res) => {
         document: {
             type: documentType,
             language: documentLanguage,
-            content: documentContent
+            gcsContentUri: documentGcsContentUri
         }
     }, true);
 
