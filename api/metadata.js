@@ -165,7 +165,6 @@ module.exports.do = function(req, res){
             ],
             'callbacks':[{'name':'error','info':'Error'}, {'name':'success','info':'Success'}]
         },
-        ,
         {
             "name":"analyzeSentimentByUri",
             "description": "Analyzes the sentiment of the provided text.",
