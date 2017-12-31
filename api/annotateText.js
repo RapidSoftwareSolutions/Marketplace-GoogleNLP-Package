@@ -4,13 +4,13 @@ const request = require('request');
 
 module.exports = (req, res) => {
     const defered = Q.defer();
-
+    
     req.body.args = lib.clearArgs(req.body.args);
 
     let {
         accessToken,
         encodingType,
-        documentType='UTF8',
+        documentType='PLAIN_TEXT',
         documentLanguage,
         documentContent,
         documentGcsContentUri,
@@ -46,12 +46,9 @@ module.exports = (req, res) => {
     }, true);
 
     request({
-        uri: 'https://language.googleapis.com/v1beta1/documents:annotateText',
+        uri: `https://language.googleapis.com/v1beta1/documents:annotateText${accessToken}`,
         method: 'POST',
-        body: JSON.stringify(params),
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+        body: JSON.stringify(params)
     }, (err, response, reslut) => {
         if(!err && (/20.*/).test(response.statusCode))
             defered.resolve(lib.safeParse(reslut));

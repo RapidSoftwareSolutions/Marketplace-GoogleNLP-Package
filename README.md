@@ -23,16 +23,6 @@ Derive insights from unstructured text using Google machine learning
  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
 
 
-## GoogleNLP.getAccessToken
-Generate access token
-
-| Field      | Type       | Description
-|------------|------------|----------
-| apiKey     | credentials| Google Cloud api key
-| apiSecret  | credentials| Google Cloud api secret
-| code       | String     | Code provided by user
-| redirectUrl| String     | Redirect URL for your application
-
 ## GoogleNLP.analyzeEntities
 Finds named entities (currently finds proper names) in the text, entity types, salience, mentions for each entity, and other properties.
 

@@ -15,37 +15,6 @@ module.exports.do = function(req, res){
         },
         'blocks': [
           {
-              "name":"getAccessToken",
-              "description": "Generate access token",
-              "args":[
-                  {
-                      name: "apiKey",
-                      type: "credentials",
-                      info: "Google Cloud api key",
-                      required: true
-                  },
-                  {
-                      name: "apiSecret",
-                      type: "credentials",
-                      info: "Google Cloud api secret",
-                      required: true
-                  },
-                  {
-                      name: "code",
-                      type: "String",
-                      info: "Code provided by user",
-                      required: true
-                  },
-                  {
-                      name: "redirectUrl",
-                      type: "String",
-                      info: "Redirect URL for your application",
-                      required: true
-                  }
-              ],
-              'callbacks':[{'name':'error','info':'Error'}, {'name':'success','info':'Success'}]
-          },
-          {
             "name":"analyzeEntities",
             "description": "Finds named entities (currently finds proper names) in the text, entity types, salience, mentions for each entity, and other properties.",
             "args":[

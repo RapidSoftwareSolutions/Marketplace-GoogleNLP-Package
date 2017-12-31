@@ -10,7 +10,7 @@ module.exports = (req, res) => {
     let {
         accessToken,
         encodingType,
-        documentType='UTF8',
+        documentType='PLAIN_TEXT',
         documentLanguage,
         documentContent,
         documentGcsContentUri
@@ -35,12 +35,9 @@ module.exports = (req, res) => {
     }, true);
 
     request({
-        uri: 'https://language.googleapis.com/v1beta1/documents:analyzeEntities',
+        uri: `https://language.googleapis.com/v1beta1/documents:analyzeEntities${accessToken}`,
         method: 'POST',
-        body: JSON.stringify(params),
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
+        body: JSON.stringify(params)
     }, (err, response, reslut) => {
         if(!err && (/20.*/).test(response.statusCode))
             defered.resolve(lib.safeParse(reslut));
